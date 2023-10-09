@@ -1,8 +1,4 @@
-import { useQuizContext } from "../hooks/useQuizContext";
-
-const NextButton = () => {
-    const { dispatch, answer, index, numQuestions } = useQuizContext();
-
+const NextButton = ({ dispatch, answer, index, numQuestions }) => {
     if (answer === null) return null;
 
     if (index < numQuestions - 1)

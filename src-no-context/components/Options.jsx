@@ -1,18 +1,15 @@
-import { useQuizContext } from "../hooks/useQuizContext";
-
-const Options = () => {
-    const { questions, dispatch, answer, index: quizIndex } = useQuizContext();
+const Options = ({ question, dispatch, answer }) => {
     const hasAnswered = answer !== null;
 
     return (
         <div className="options">
-            {questions[quizIndex].options.map((option, index) => (
+            {question.options.map((option, index) => (
                 <button
                     className={`btn btn-option ${
                         index === answer ? "answer" : ""
                     } ${
                         hasAnswered
-                            ? index === questions[quizIndex].correctOption
+                            ? index === question.correctOption
                                 ? "correct"
                                 : "wrong"
                             : ""
